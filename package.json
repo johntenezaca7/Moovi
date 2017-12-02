@@ -17,6 +17,7 @@
     "concurrently": "^3.5.1",
     "create-react-app": "^1.4.3",
     "express": "^4.16.2",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "redux-promise": "^0.5.3"
   }
 }
