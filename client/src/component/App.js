@@ -4,6 +4,9 @@ import { bindActionCreators } from 'redux';
 import { fetch_nowPlaying } from '../actions/index';
 
 import NowPlaying from './nowPlaying';
+import SignIn from './SignIn';
+// import { Carousel } from 'react-ressponsive-carousel';
+// import ImageGallery from 'react-image-gallery';
 
 
 class App extends Component {
@@ -14,25 +17,42 @@ class App extends Component {
 }
 
     render() {
+
       return (
-        <div className="wrapper">
-       
-        <div class="header">
-        <h1>Chania</h1>
-        </div>
-          <div class="row">
-
-          <div class="col-3 menu">
-          <h1>Now Playing:</h1>
-                  <NowPlaying />
+        <div className="app-wrapper">  
+          <div className="left-side-content">
+            <div>
+              <SignIn />
+            </div>
+            <div>Chat Content</div>
           </div>
-
-          <div class="col-9">
-            <h1>The City</h1>
-            <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
-            <p>Resize the browser window to see how the content respond to the resizing.</p>
-          </div>
-
+          <div className="right-side-content">
+            <div className="header">
+              <div>
+                Action
+              </div>
+              <div>
+                Drama
+              </div>
+              <div>
+                Comedy
+              </div>
+              <div>
+                Sci-Fi
+              </div>
+              <div>
+                Rom-Coms
+              </div>
+              <div>
+              Horror
+              </div>
+              <div>
+                Film-Noir
+              </div>
+            </div>
+            <div className="media-content">
+                <NowPlaying />
+            </div>
           </div>
         </div>
       );
@@ -44,4 +64,9 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({fetch_nowPlaying}, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(App);
+function mapStateToProps(state) {
+  return{
+      movies: state.nowPlaying[0]
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

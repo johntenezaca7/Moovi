@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import ImageGallery from 'react-image-gallery';
 
 class nowPlaying extends Component {
     renderNowPlayingList(){
-        return this.props.movies.results.map((movie) => {
+         return this.props.movies.results.map((movie, idx) => {
             return(
-                <li
-                    key={movie.title}
-                    >
-                    {movie.title}
-                </li>
+                    
+                    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} key={idx}  />
+                  
+                
             )
         })
     }
@@ -20,11 +19,11 @@ class nowPlaying extends Component {
         if(!this.props.movies){
             return(<div>Loading</div>)
         }
-
+       
         return(
-            <ul>
-            {this.renderNowPlayingList()}
-            </ul>
+            <div className="nested">
+                {this.renderNowPlayingList()}
+            </div>
         );
     }
 }
