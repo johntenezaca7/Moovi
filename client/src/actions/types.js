@@ -1,0 +1,1 @@
+export const FETCH_NOW_PLAYING = 'FETCH_NOW_PLAYING'
