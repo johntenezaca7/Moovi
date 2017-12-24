@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetch_nowPlaying } from '../actions/index';
+import { fetch_nowPlaying, fetch_genres } from '../actions/index';
 
 import NowPlaying from './nowPlaying';
 import SignIn from './SignIn';
-// import { Carousel } from 'react-ressponsive-carousel';
-// import ImageGallery from 'react-image-gallery';
+import Search from './Search';
 
 
 class App extends Component {
 
   componentDidMount(){
-    this.props.fetch_nowPlaying();
+    this.props.actions.nowPlaying();
+    this.props.actions.allGenres();
     
 }
 
@@ -28,27 +28,8 @@ class App extends Component {
           </div>
           <div className="right-side-content">
             <div className="header">
-              <div>
-                Action
-              </div>
-              <div>
-                Drama
-              </div>
-              <div>
-                Comedy
-              </div>
-              <div>
-                Sci-Fi
-              </div>
-              <div>
-                Rom-Coms
-              </div>
-              <div>
-              Horror
-              </div>
-              <div>
-                Film-Noir
-              </div>
+              <Search />
+              <div></div>
             </div>
             <div className="media-content">
                 <NowPlaying />
@@ -61,12 +42,19 @@ class App extends Component {
 
 function mapDispatchToProps(dispatch) {
 
-  return bindActionCreators({fetch_nowPlaying}, dispatch)
+  return {
+    actions: {
+      nowPlaying: bindActionCreators(fetch_nowPlaying, dispatch),
+      allGenres: bindActionCreators(fetch_genres, dispatch)
+    }
+  }
+
 }
 
 function mapStateToProps(state) {
   return{
-      movies: state.nowPlaying[0]
+      movies: state.nowPlaying[0],
+      genres: state.allGenres[0]
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);

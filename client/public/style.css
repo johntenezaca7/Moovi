@@ -1,6 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 20px;
+  
 }
 
 .app-wrapper {
@@ -31,13 +32,6 @@ body {
     padding:1em;
 }
 
-.nested {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 1em;
-    /* grid-auto-rows: minmax(100px, auto); */
-    justify-items: stretch;
-}
 
 .left-side-content {
     display: grid;
@@ -50,7 +44,21 @@ body {
 }
 
 img {
-    height: 250px;
-    width: 90%;
+    display: block;
+    max-width: 100%;
+    height: auto;;
 }
+
+.movie-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    justify-items: stretch;
+    height: 620px;
+    border: 2px solid white;
+    overflow: scroll;
+}
+
+
+
 

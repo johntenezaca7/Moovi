@@ -1,14 +1,20 @@
 import axios from 'axios';
-import { FETCH_NOW_PLAYING } from './types'
+import { FETCH_NOW_PLAYING, FETCH_GENRES } from './types';
+import { NOW_PLAYING_URL, GENRES_URL } from './urls';
  
-const API_KEY = 'dc8b8984622bb10d12c258287d2952d2';
-const ROOT_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`
 
-export function fetch_nowPlaying() {
-    const request = axios.get(ROOT_URL);
-    
+export const fetch_nowPlaying = () => {
+    const response = axios.get(NOW_PLAYING_URL);
     return {
         type: FETCH_NOW_PLAYING,
-        payload: request
-    }
-}
+        payload: response
+    };
+};
+
+export const fetch_genres = () => {
+    const response = axios.get(GENRES_URL);
+    return {
+        type: FETCH_GENRES,
+        payload: response
+    };
+};
