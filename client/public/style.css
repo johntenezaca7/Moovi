@@ -49,6 +49,20 @@ img {
     height: auto;;
 }
 
+.genres-container {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.each-genre {
+    border: 1px #cccccc solid;
+
+    padding: 10px;
+}
+
+
 .movie-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -58,7 +72,6 @@ img {
     border: 2px solid white;
     overflow: scroll;
 }
-
 
 
 

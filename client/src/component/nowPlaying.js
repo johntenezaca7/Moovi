@@ -8,7 +8,7 @@ class nowPlaying extends Component {
         console.log('movie:' + name)
     }
     renderNowPlayingList(){
-         return this.props.movies.results.map((movie, idx) => {
+         return this.props.movies.map((movie, idx) => {
             //  console.log('each Movie', movie)
             return(
                 <img 
@@ -22,11 +22,11 @@ class nowPlaying extends Component {
     }
  
     render(){
-        
+       
         if(!this.props.movies){
             return(<div>Loading</div>)
         }
-       
+
         return(
             <div className="movie-list">
                 {this.renderNowPlayingList()}
@@ -37,8 +37,8 @@ class nowPlaying extends Component {
 
   
 function mapStateToProps(state) {
-    return{
-        movies: state.nowPlaying[0]
+    return {
+        movies: state.nowPlaying.results,
     }
 }
 

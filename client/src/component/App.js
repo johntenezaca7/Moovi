@@ -27,9 +27,9 @@ class App extends Component {
             <div>Chat Content</div>
           </div>
           <div className="right-side-content">
-            <div className="header">
+            <div >
               <Search />
-              <div></div>
+             
             </div>
             <div className="media-content">
                 <NowPlaying />
@@ -51,10 +51,5 @@ function mapDispatchToProps(dispatch) {
 
 }
 
-function mapStateToProps(state) {
-  return{
-      movies: state.nowPlaying[0],
-      genres: state.allGenres[0]
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default connect(null, mapDispatchToProps)(App);
